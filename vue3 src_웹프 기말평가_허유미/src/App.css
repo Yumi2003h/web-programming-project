@@ -1,0 +1,203 @@
+/* src/App.css */
+/* -------- 테마 변수 -------- */
+:root {
+  --deep-pink: #ff2d7b;
+  --light-pink: #ffd1ec;
+  --light-pink-mid: #ffb4d9;
+  --light-pink-end: #ffa3d3;
+  --dark-gray: #444;
+  --photo-bg: #f3e8ff;
+}
+
+/* -------- 기본 타이포그래피 -------- */
+body {
+  font-family: "Jua", "Quicksand", sans-serif;
+  margin: 0;
+}
+
+/* -------- 헤더 영역 -------- */
+header {
+  height: 200px; /* 높이 지정 */
+  background: linear-gradient(
+    135deg,
+    var(--light-pink),
+    var(--deep-pink)
+  ); /* 그라디언트 배경 */
+  color: #fff; /* 글자색 흰색 */
+  display: flex; /* 플렉스 레이아웃 */
+  flex-direction: column; /* 수직 배치 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center; /* 수평 중앙 정렬 */
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* 텍스트 그림자 */
+  border-bottom-left-radius: 40px; /* 왼쪽 아래 둥글게 */
+  border-bottom-right-radius: 40px; /* 오른쪽 아래 둥글게 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* 박스 그림자 */
+  gap: 6px;
+}
+/* 헤더 제목 */
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+/* 강조 텍스트 그라디언트 */
+header .hl {
+  background: linear-gradient(90deg, #ff3385 0%, #ff2d7b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* 태그라인 배경 */
+header .tagline {
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--deep-pink), #db1c63);
+  color: var(--dark-gray);
+  font-family: "Quicksand";
+  font-weight: 600;
+}
+
+/* -------- 레이아웃 구성 -------- */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  min-height: calc(100vh - 280px);
+}
+main {
+  grid-column: 1;
+}
+nav {
+  grid-column: 2;
+}
+
+/* -------- 네비게이션 메뉴 -------- */
+nav {
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: auto;
+}
+/* 햄버거 버튼 (모바일용) */
+.hamburger {
+  display: none;
+  padding: 12px;
+  border: none;
+  background: var(--deep-pink);
+  color: #fff;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+/* 최상위 메뉴 리스트 초기화 */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* 메뉴 아이템 박스 */
+.menu > li {
+  margin: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--light-pink), var(--light-pink-mid));
+}
+/* 메뉴 링크 */
+.menu a {
+  display: block;
+  padding: 12px 0;
+  text-align: center;
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+/* 서브메뉴 초기 숨김 */
+.submenu {
+  display: none;
+  list-style: none;
+  padding: 0;
+}
+/* 호버 시 서브메뉴 표시 */
+.menu > li:hover .submenu {
+  display: block;
+}
+/* 서브메뉴 링크 스타일 */
+.submenu li a {
+  padding: 10px 0;
+  background: var(--light-pink-end);
+}
+
+/* -------- 메인 히어로 섹션 -------- */
+main {
+  background: var(--photo-bg);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hero {
+  max-width: 600px;
+  max-height: 400px;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+.hero {
+  width: 100%;
+  max-width: 800px; /* ← 600 → 800px */
+  max-height: 600px; /* ← 400 → 600px */
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+/* 실제 히어로 이미지 */
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  z-index: 1;
+}
+.hero-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 1.8rem;
+  font-family: "Quicksand";
+  z-index: 2;
+}
+
+/* -------- 푸터 영역 -------- */
+footer {
+  font-family: -apple-system, sans-serif;
+  height: 80px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* -------- 반응형 설정 -------- */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .hamburger {
+    display: block;
+  }
+  .menu {
+    display: none;
+  }
+  nav.active .menu {
+    display: block;
+  }
+}
